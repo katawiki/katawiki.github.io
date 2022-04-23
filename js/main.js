@@ -6,6 +6,7 @@
  */
 
 
+/*
 // initialize stuff like theme, etc
 (function () {
     // set the theme to what data is stored, or the default
@@ -23,3 +24,4 @@
         })
     })
 })()
+*/
