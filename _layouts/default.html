@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="{% if page.description %} {{ page.description }} {% else %} {{ site.description }} {% endif %}">
+
+    <title>
+        {% if page.title %}
+            {{ page.title }} | {{ site.title }}
+        {% else %}
+            {{ site.description }} | {{ site.title }}
+        {% endif %}
+    </title>
+    
+
+    <!-- HTML favicon -->
+    <link rel="shortcut icon" type="image/png" href="/files/favicon.webp">
+
+    <!-- RSS feed -->
+    <link rel="alternate" type="application/atom+xml" title="{{ site.desc }}" href="/feed.xml">
+
+
+    <!-- EXTERNAL DEPENDENCIES -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Github Buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- FontAwesome CSS -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,900&display=swap" rel="stylesheet">
+
+
+    {% if jekyll.environment == 'production' %}
+        {% if site.googleanalytics %}
+            <!-- Google Analytics site tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.googleanalytics }}"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '{{ site.googleanalytics }}');
+            </script>
+        {% else %}
+            <!-- no Google Analytics ID given -->
+        {% endif %}
+    {% else %}
+        <!-- WARN: not in production mode (so things like Google Analytics won't work) -->
+    {% endif%}
+
+    {% if page.use_prism %}
+        <!-- prism.js - stylesheet -->
+        <link rel="stylesheet" href="/css/prism.css">
+
+        <!-- prism.js - impl -->
+        <script async src="/js/prism.js"></script>
+    {% else %}
+        <!-- no prism.js support -->
+    {% endif %}
+
+    {% if page.use_katex %}
+        <!-- KaTeX, for math formatting -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+            onload='renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false}
+                ]
+            })'></script>
+
+    {% else %}
+        <!-- no KaTeX support -->
+    {% endif %}
+
+
+    <!-- My code -->
+    <link rel='stylesheet' href='/css/main.css' type='text/css'>
+    
+    <script src="/js/main.js"></script>
+
+
+
+  </head>
+  <body>
+    {{ content }}
+  </body>
+</html>
