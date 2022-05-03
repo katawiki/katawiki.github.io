@@ -1,0 +1,19 @@
+---
+layout: page
+permalink: /blog
+title: Development Blog
+---
+
+Check out all blog posts: [/blog/all]({{ site.baseurl }}/blog/all)
+
+<div class="album">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for post in site.posts %}
+        <div class="col">
+          {{ post.date | date: '%Y-%m-%d' }} - <a href='{{ post.url }}'>{{ post.title }} {% if post.description %} - {{ post.description }} {% endif %}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

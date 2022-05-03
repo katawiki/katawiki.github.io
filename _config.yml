@@ -27,6 +27,12 @@ plugins:
   - jekyll-paginate
   - jekyll-feed
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      use_prism: true
+      use_katex: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.

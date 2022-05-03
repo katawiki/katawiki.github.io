@@ -1,20 +1,28 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name="description" content="{% if page.description %} {{ page.description }} {% else %} {{ site.description }} {% endif %}">
+    <meta name="description"
+        content="{% if page.description %} {{ page.description }} {% else %} {{ site.description }} {% endif %}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/files/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/files/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/files/logo/favicon-16x16.png">
+    <link rel="manifest" href="/files/logo/site.webmanifest">
+
 
     <title>
         {% if page.title %}
-            {{ page.title }} | {{ site.title }}
+        {{ page.title }} | {{ site.title }}
         {% else %}
-            {{ site.description }} | {{ site.title }}
+        {{ site.description }} | {{ site.title }}
         {% endif %}
     </title>
-    
+
 
     <!-- HTML favicon -->
     <link rel="shortcut icon" type="image/png" href="/files/favicon.webp">
@@ -26,7 +34,8 @@
     <!-- EXTERNAL DEPENDENCIES -->
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- Github Buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -36,50 +45,57 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Fonts -->
+    <!-- Fonts 
+    cool monospace fonts: https://fonts.google.com/?category=Monospace&preview.text=kata.wiki%20Software%20Homepage%201235321&preview.text_type=custom
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,900&display=swap" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,900&display=swap" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 
     {% if jekyll.environment == 'production' %}
-        {% if site.googleanalytics %}
-            <!-- Google Analytics site tag (gtag.js) -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.googleanalytics }}"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
+    {% if site.googleanalytics %}
+    <!-- Google Analytics site tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.googleanalytics }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-                gtag('config', '{{ site.googleanalytics }}');
-            </script>
-        {% else %}
-            <!-- no Google Analytics ID given -->
-        {% endif %}
+        gtag('config', '{{ site.googleanalytics }}');
+    </script>
     {% else %}
-        <!-- WARN: not in production mode (so things like Google Analytics won't work) -->
+    <!-- no Google Analytics ID given -->
+    {% endif %}
+    {% else %}
+    <!-- WARN: not in production mode (so things like Google Analytics won't work) -->
     {% endif%}
 
     {% if page.use_prism %}
-        <!-- prism.js - stylesheet -->
-        <link rel="stylesheet" href="/css/prism.css">
+    <!-- prism.js - stylesheet -->
+    <link rel="stylesheet" href="/css/prism.css">
 
-        <!-- prism.js - impl -->
-        <script async src="/js/prism.js"></script>
+    <!-- prism.js - impl -->
+    <script async src="/js/prism.js"></script>
     {% else %}
-        <!-- no prism.js support -->
+    <!-- no prism.js support -->
     {% endif %}
 
     {% if page.use_katex %}
-        <!-- KaTeX, for math formatting -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
+    <!-- KaTeX, for math formatting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css"
+        integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
 
-        <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"
+        integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb"
+        crossorigin="anonymous"></script>
 
-        <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-            onload='renderMathInElement(document.body, {
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js"
+        integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload='renderMathInElement(document.body, {
                 delimiters: [
                     {left: "$$", right: "$$", display: true},
                     {left: "\\[", right: "\\]", display: true},
@@ -89,29 +105,35 @@
             })'></script>
 
     {% else %}
-        <!-- no KaTeX support -->
+    <!-- no KaTeX support -->
     {% endif %}
 
 
     <!-- My code -->
     <link rel='stylesheet' type='text/css' href='/css/main.css'>
-    
+
     <script src="/js/main.js"></script>
 
-  </head>
-  <body>
-      <div id="container">
-        <div id="sidebar">
-            <div>
-            Test
-        </div>
-    </div>
-        <div id="content">
-            <div>
-                {{ content }}
+</head>
 
+<body>
+    <div class="kw-wrap">
+        <div class="kw-head">
+            <a href="/">kata.wiki</a>
+            <a href="/blog">/blog</a>
+            <a href="/phil">/phil</a>
+            <a href="/code">/code</a>
+        </div>
+        <div class="kw-body">
+            <div class="kw-side">
+                {% include toc.html html=content %}
+            </div>
+
+            <div class="kw-main">
+                {{ content }}
             </div>
         </div>
     </div>
-  </body>
+</body>
+
 </html>
