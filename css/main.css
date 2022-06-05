@@ -8,31 +8,46 @@
 
 /* kata.wiki variables, which programmatically controls the rest of the elements */
 :root {
-	--kw-back: #FFFFFF;
+	/*
+    --kw-back: #FFFFFF;
 	--kw-back-alt: #F6F6F6;
 	--kw-back-rev: #BBBBBB;
 	--kw-stroke: #333333;
 	--kw-stroke-alt: #111111;
+    */
+    --kw-back: #222222;
+	--kw-back-alt: #111111;
+	--kw-back-rev: #BBBBBB;
+
+    --kw-text: #FFFFFF;
+    --kw-text-alt: #EEEEEE;
+
+	--kw-stroke: #333333;
+	--kw-stroke-alt: #111111;
+
+
     /* content which is a link */
     --kw-link: #1e6be9;
-	--kw-side-width: 14em;
+	--kw-side-width: 20em;
 	--kw-font: 'Fira Mono', monospace;
 }
 
 html {
-	height: 100%;
+    margin: 0;
+    height: 100%;
 	font-family: var(--kw-font);
 }
 
 body {
 	margin: 0;
-	height: 100%;
+    height: 100%;
+    color: var(--kw-text);
+    font-size: 102%;
 }
 
 a {
 	color: var(--kw-link);
 }
-
 
 video {
     margin: auto;
@@ -56,7 +71,6 @@ img {
     border: solid 1px var(--col-border-fig);
 }
 
-
 table {
     margin: auto;
 }
@@ -74,7 +88,6 @@ td {
     background: #333333;
 }
 
-
 code {
     font-size: 1.016rem;
 	background-color: var(--kw-back-alt);
@@ -89,22 +102,18 @@ pre>code {
     border: none;
 }
 
-/*
 blockquote {
-    background: var(--col-back0);
-    border-left: 10px solid var(--col-border);
+    background: var(--kw-back-alt);
+    border-left: 10px solid var(--kw-stroke);
     font-size: 1.2em;
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
+    margin: 1.0em 10px;
+    padding: 1.5em 10px 0.25em 10px;
     quotes: "\201C""\201D""\2018""\2019";
 }
-*/
-
-/*
 
 blockquote:before {
     content: open-quote;
-    font-size: 4em;
+    font-size: 3.6em;
     line-height: 0.1em;
     margin-right: 0.25em;
     vertical-align: -0.4em;
@@ -113,7 +122,148 @@ blockquote:before {
 blockquote p {
     margin-block-start: 0.5em;
 }
-*/
+
+/* kata.wiki layout */
+
+.kw-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+	background-color: var(--kw-back);
+
+    /*
+    margin: 0;
+    height: 100%;
+    */
+}
+
+.kw-header {
+    display: flex;
+	overflow: hidden;
+
+    padding-top: 0.36em;
+    padding-bottom: 0.36em;
+
+    border: solid var(--kw-stroke);
+	border-width: 0px 0px 1px 0px;
+
+    background-color: var(--kw-back-alt);
+}
+
+.kw-header a {
+	padding: 0.3em 0.5em;
+	margin: 0;
+
+    font-size: 144%;
+	font-weight: bold;
+
+    color: var(--kw-text-alt);
+	text-decoration: none;
+
+	/*min-width: 3.0em;*/
+	/*text-align: center;*/
+	/*background-color: var(--kw-back-rev);*/
+
+}
+
+.kw-header a:hover {
+	text-decoration: underline;
+}
+
+.kw-body {
+    /*height: 100%;*/
+/*	background-color: var(--kw-back);*/
+}
+
+
+.kw-sidebar {
+    /*position: fixed;*/
+
+	float: left;
+	width: var(--kw-side-width);
+	font-size: 92%;
+    padding-top: 1.0em;
+    padding-bottom: 0.2em;
+    padding-left: 0.7em;
+    padding-right: 0.4em;
+
+	background-color: var(--kw-back-alt);
+	outline: 1px solid var(--kw-stroke);
+}
+
+.kw-sidebar a {
+	color: var(--kw-text-alt);
+	text-decoration: none;
+}
+
+.kw-sidebar a:hover {
+	text-decoration: underline;
+}
+
+.kw-sidebar > ul, ol {
+	padding-left: 1.5rem !important;
+}
+
+.kw-sidebar ul, ol {
+
+	padding-left: 0.8rem;
+}
+
+.kw-main {
+	padding: 0.333em;
+    padding-top: 1.4em;
+	min-width: var(--kw-side-width);
+	margin-left: var(--kw-side-width);
+    margin-right: 1em;
+}
+
+.kw-footer {
+    margin: 0;
+    padding: 1em;
+    margin-top: auto;
+    min-height: 200px;
+
+    padding-left: 6vw;
+    padding-right: 6vw;
+
+    outline: 1px solid var(--kw-stroke);
+
+    text-align: center;
+    background-color: var(--kw-back-alt);
+}
+
+.kw-footer h5 a {
+    color: var(--kw-text-alt);
+}
+.kw-footer a {
+    /*color: var(--kw-text-alt);*/
+
+    text-decoration: none;
+}
+
+.kw-footer-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5em;
+}
+
+.kw-footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.kw-footer-links > div {
+    flex-grow: 1;
+    width: 33.3%;
+    flex: 0 0 auto;
+}
+
 
 
 /*
@@ -121,20 +271,37 @@ blockquote p {
 center > iframe {
     max-width: 100%;
 }
+*/
 
+/*
 footer {
     height: var(--footer-height);
     width: 100%;
     padding-top: 1em;
+	background-color: var(--kw-back-alt);
     padding-bottom: 1em;
-}
+}*/
+/*
 
-footer a {
+.kw-footer-container a {
     text-decoration: none;
     padding: 0.3em;
     border-radius: 0.1em;
 }
 
+.kw-footer-container {
+    bottom: 0;
+    width: 100%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+
+    height: var(--footer-height);
+    padding-top: 1em;
+	background-color: var(--kw-back-alt);
+    padding-bottom: 1em;
+}
 
 */
 
@@ -156,92 +323,8 @@ footer a {
 
 
 
-/* kata.wiki layout */
-
-
-.kw-wrap {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-}
-
-.kw-head {
-	display: flex;
-	background-color: var(--kw-back-alt);
-	border: solid var(--kw-stroke);
-	border-width: 0px 0px 1px 0px;
-	overflow: hidden;
-}
-
-.kw-head a {
-	padding: 0.3em 0.5em;
-	margin: 0;
-	/*min-width: 3.0em;*/
-	/*text-align: center;*/
-	/*background-color: var(--kw-back-rev);*/
-	font-size: 141%;
-	font-weight: bold;
-	color: var(--kw-stroke-alt);
-
-	text-decoration: none;
-}
-
-.kw-head a:hover {
-	text-decoration: underline;
-}
-
-.kw-body {
-	overflow: auto;
-	height: 100%;
-}
-
-.kw-side {
-	float: left;
-	width: var(--kw-side-width);
-	height: 100%;
-	font-size: 92%;
-
-	background-color: var(--kw-back-alt);
-	outline: 1px solid var(--kw-stroke);
-}
-
-.kw-side a {
-	color: var(--kw-stroke-alt);
-	text-decoration: none;
-}
-
-.kw-side a:hover {
-	text-decoration: underline;
-}
-
-.kw-side > ul, ol {
-	padding-left: 1.5rem !important;
-
-}
-
-.kw-side ul, ol {
-
-	padding-left: 0.8rem;
-}
-
-.kw-main {
-	background-color: var(--kw-back);
-	min-width: var(--kw-side-width);
-	margin-left: var(--kw-side-width);
-
-}
-
-
-/* add '#' like markdwon before titles */
-
-.kw-main h1::before {
-    content: '# ';
-}
-.kw-main h2::before {
-    content: '## ';
-}
-.kw-main h3::before {
-    content: '### ';
+.no-content::before {
+    content: '' !important;
 }
 
 

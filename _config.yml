@@ -10,8 +10,8 @@ url: "https://kata.wiki"
 
 # links/socials
 email: info@kata.wiki
-twitter_username: katadotwiki
-github_username: katawiki
+twitter: katadotwiki
+github: katawiki
 
 # blog permalinks
 permalink: /blog/:title

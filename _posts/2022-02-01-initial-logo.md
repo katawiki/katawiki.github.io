@@ -16,4 +16,4 @@ This is a draft of Kata's logo, made with blender:
 
 You can check out the full source available online:
 
-  * [artwork/logo.blend](https://github.com/kataproj/artwork/blob/main/logo.blend)
+  * [artwork/logo.blend](https://github.com/katawiki/artwork/blob/main/logo.blend)
